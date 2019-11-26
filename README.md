@@ -12,6 +12,11 @@ http://localhost:3000/demo/demo1.html
 https://master.d2t3ffh317fr07.amplifyapp.com/js/bundle.js
 https://master.d2t3ffh317fr07.amplifyapp.com/css/main.css
 
+## Useful script
+
+yarn cache clean
+yarn install
+
 ## Available Scripts
 
 In the project directory, you can run:
