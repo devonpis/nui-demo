@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import { Button } from 'clui-ui';
 
 function App() {
   return (
@@ -16,6 +17,12 @@ function App() {
         >
           Learn React
         </a>
+        <Button 
+          variant="contained"
+          color="primary"
+        >
+          Learn React
+        </Button>
       </header>
     </div>
   );
