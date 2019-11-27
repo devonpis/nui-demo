@@ -1,4 +1,3 @@
-import { createMuiTheme } from '@material-ui/core/styles';
 import merge from 'lodash/merge';
 
 const myTheme = {
@@ -7,10 +6,7 @@ const myTheme = {
     }
 }
 
-const globalTheme = (theme, customTheme) =>
-    createMuiTheme(
-        merge(merge(theme, myTheme), customTheme)
-    )
+const globalTheme = (theme, customTheme) => merge(merge(theme, myTheme), customTheme)
   
   
 export default globalTheme;
