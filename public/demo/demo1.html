@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <title>Nui demo</title>
+    <style>
+      html,
+      body {
+        padding: 0;
+        margin: 0;
+        background-color: darkslategrey;
+        color: white;
+        font-family: 'Courier New', Courier, monospace;
+      }
+      .main .header {
+          padding: 20px;
+      }
+      .main .container {
+          box-sizing: border-box;
+          height: 100vh;
+          border-radius: 4px;
+          background: #FAFAFA;
+      }
+      .main h3.subtitle {
+        color:orange;
+      }
+      .main code {
+        background-color: rgba(255,255,255,0.1);
+        display:block;
+        padding:20px;
+        max-width: 920px;
+      }
+    </style>
+    <script src="https://master.d2t3ffh317fr07.amplifyapp.com/js/bundle.js"></script>
+    <link href="https://master.d2t3ffh317fr07.amplifyapp.com/css/main.css" rel="stylesheet">
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div class="main">
+        <div class="header">
+            <h1>Full page demo</h1>
+        </div>
+      <div class="container">
+            <div id="nuiPlayer"></div>    
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      NuiPlayer.init({
+        selector: "#nuiPlayer"
+      });
+    </script>
+  </body>
+</html>
