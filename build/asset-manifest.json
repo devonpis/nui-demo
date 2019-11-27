@@ -1,15 +1,12 @@
 {
   "files": {
-    "main.css": "./css/main.css",
     "main.js": "./js/bundle.js",
     "main.js.map": "./js/bundle.js.map",
-    "css/main.css.map": "./css/main.css.map",
     "index.html": "./index.html",
-    "precache-manifest.ac706ff14a91e9414d63786053eaea4d.js": "./precache-manifest.ac706ff14a91e9414d63786053eaea4d.js",
+    "precache-manifest.169afd31fb2b71b3acbf028d35c24bfb.js": "./precache-manifest.169afd31fb2b71b3acbf028d35c24bfb.js",
     "service-worker.js": "./service-worker.js"
   },
   "entrypoints": [
-    "css/main.css",
     "js/bundle.js"
   ]
 }
