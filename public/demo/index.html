@@ -61,62 +61,11 @@
       <div class="container">
             <div id="nuiPlayer"></div>    
       </div>
-      <h3 class="subtitle">Customisation</h3>
-      <code>
-            NuiPlayer.init({<br>
-              &ensp;selector: "#nuiPlayerCustom",<br>
-              &ensp;theme: {<br>
-                &ensp;&ensp;palette: {<br>
-                  &ensp;&ensp;&ensp;primary: {<br>
-                    &ensp;&ensp;&ensp;&ensp;main: "#FFFF00",<br>
-                    &ensp;&ensp;&ensp;&ensp;dark: "#FFcc00",<br>
-                    &ensp;&ensp;&ensp;&ensp;contrastText: "#000000",<br>
-                    &ensp;&ensp;&ensp;},<br>
-                    &ensp;&ensp;&ensp;background: {<br>
-                      &ensp;&ensp;&ensp;&ensp;default: "#111111",<br>
-                      &ensp;&ensp;&ensp;&ensp;paper: "#334455",<br>
-                      &ensp;&ensp;&ensp;},<br>
-                      &ensp;&ensp;&ensp;text: {<br>
-                        &ensp;&ensp;&ensp;&ensp;primary: "#ff0000",<br>
-                      &ensp;&ensp;&ensp;}<br>
-                &ensp;&ensp;},<br>
-                &ensp;&ensp;shape: {<br>
-                  &ensp;&ensp;&ensp;borderRadius: 20,<br>
-                &ensp;&ensp;}<br>
-              &ensp;}<br>
-            }); 
-      </code>
-      <div class="container">
-            <div id="nuiPlayerCustom"></div>    
-      </div>
     </div>
 
     <script type="text/javascript">
       NuiPlayer.init({
       selector: "#nuiPlayer"
-      }); 
-
-      NuiPlayer.init({
-        selector: "#nuiPlayerCustom",
-        theme: {
-          palette: {
-            primary: {
-              main: "#FFFF00",
-              dark: "#FFcc00",
-              contrastText: "#000000",
-            },
-            background: {
-              default: "#111111",
-              paper: "#334455",
-            },
-            text: {
-              primary: "#ff0000",
-            }
-          },
-          shape: {
-            borderRadius: 20,
-          }
-        }
       }); 
     </script>
   </body>
