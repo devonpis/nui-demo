@@ -5,6 +5,7 @@ import App from './App';
 import myTheme from './globalTheme';
 
 // ReactDOM.render(<App />, document.getElementById('root'));
+
 export const init = (config) => {
     ReactDOM.render(
       (        
@@ -14,4 +15,16 @@ export const init = (config) => {
       ), 
       document.querySelector(config.selector || "")
     );
+}
+
+let globalObject = window[window['NuiPlayer']];
+if (globalObject) {
+  let queue = globalObject.q;
+  if (queue) {
+      for (var i = 0; i < queue.length; i++) {
+          if (queue[i][0].toLowerCase() === 'init') {
+            init(queue[i][1]);
+          }
+      }
+  }
 }

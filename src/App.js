@@ -72,7 +72,7 @@ function App(props) {
       </List>
       <Divider />
       <List>
-        {['All mail', 'Trash', 'Spam'].map((text, index) => (
+        {['All mail', 'Trash', 'Spam', ].map((text, index) => (
           <ListItem button key={text}>
             <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
             <ListItemText primary={text} />
@@ -98,155 +98,45 @@ function App(props) {
       </header>
       <div className={classes.root}>
         <Grid container spacing={4}>
-          <Grid item xs={3}>
-            <Paper className={classes.paper}>
-              <Box pb={2}>
-                <Typography variant="h5" component="h3">Item 1</Typography>
-              </Box>
-              <Box pb={2}>
-                <Typography variant="body1" component="p">os ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti.</Typography>
-              </Box>
-              <Button variant="contained" color="primary" onClick={handleClickOpen}>
-                Open dialog
-              </Button>
-              <Dialog
-                  open={open}
-                  onClose={handleClose}
-                  aria-labelledby="alert-dialog-title"
-                  aria-describedby="alert-dialog-description"
-              >
-                  <DialogTitle id="alert-dialog-title">{"This is a sample dialog(modal)"}</DialogTitle>
-                  <DialogContent>
-                  <DialogContentText id="alert-dialog-description">
-                      Let Google help apps determine location. This means sending anonymous location data to
-                      Google, even when no apps are running.
-                  </DialogContentText>
-                  </DialogContent>
-                  <DialogActions>
-                  <Button onClick={handleClose} variant="contained" color="primary" autoFocus>
-                      Agree
-                  </Button>
-                  <Button onClick={handleClose} variant="outlined" color="primary">
-                      Disagree
-                  </Button>
-                  </DialogActions>
-              </Dialog>
-            </Paper>
-          </Grid>
-          <Grid item xs={3}>
-            <Paper className={classes.paper}>
-              <Box pb={2}>
-                <Typography variant="h5" component="h3">Item 2</Typography>
-              </Box>
-              <Box pb={2}>
-                <Typography variant="body1" component="p">os ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti.</Typography>
-              </Box>
-              <Button 
-                variant="contained"
-                size="medium"
-              >
-                Enter
-              </Button>
-            </Paper>
-          </Grid>
-          <Grid item xs={3}>
-            <Paper className={classes.paper}>
-              <Box pb={2}>
-                <Typography variant="h5" component="h3">Item 3</Typography>
-              </Box>
-              <Box pb={2}>
-                <Typography variant="body1" component="p">os ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti.</Typography>
-              </Box>
-              <Button 
-                variant="contained"
-                size="medium"
-              >
-                Enter
-              </Button>
-            </Paper>
-          </Grid>
-          <Grid item xs={3}>
-            <Paper className={classes.paper}>
-              <Box pb={2}>
-                <Typography variant="h5" component="h3">Item 4</Typography>
-              </Box>
-              <Box pb={2}>
-                <Typography variant="body1" component="p">os ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti.</Typography>
-              </Box>
-              <Button 
-                variant="contained"
-                size="medium"
-              >
-                Enter
-              </Button>
-            </Paper>
-          </Grid>
-          <Grid item xs={3}>
-            <Paper className={classes.paper}>
-              <Box pb={2}>
-                <Typography variant="h5" component="h3">Item 5</Typography>
-              </Box>
-              <Box pb={2}>
-                <Typography variant="body1" component="p">os ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti.</Typography>
-              </Box>
-              <Button 
-                variant="contained"
-                size="medium"
-              >
-                Enter
-              </Button>
-            </Paper>
-          </Grid>
-          <Grid item xs={3}>
-            <Paper className={classes.paper}>
-              <Box pb={2}>
-                <Typography variant="h5" component="h3">Item 6</Typography>
-              </Box>
-              <Box pb={2}>
-                <Typography variant="body1" component="p">os ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti.</Typography>
-              </Box>
-              <Button 
-                variant="contained"
-                size="medium"
-              >
-                Enter
-              </Button>
-            </Paper>
-          </Grid>
-          <Grid item xs={3}>
-            <Paper className={classes.paper}>
-              <Box pb={2}>
-                <Typography variant="h5" component="h3">Item 7</Typography>
-              </Box>
-              <Box pb={2}>
-                <Typography variant="body1" component="p">os ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti.</Typography>
-              </Box>
-              <Button 
-                variant="contained"
-                size="medium"
-              >
-                Enter
-              </Button>
-            </Paper>
-          </Grid>
-          <Grid item xs={3}>
-            <Paper className={classes.paper}>
-              <Box pb={2}>
-                <Typography variant="h5" component="h3">Item 8</Typography>
-              </Box>
-              <Box pb={2}>
-                <Typography variant="body1" component="p">os ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti.</Typography>
-              </Box>
-              <Button 
-                variant="contained"
-                size="medium"
-              >
-                Enter
-              </Button>
-            </Paper>
-          </Grid>
+          {['All mail', 'Trash', 'Spam', 'Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+            <Grid item xs={3}>
+              <Paper className={classes.paper}>
+                <Box pb={2}>
+                  <Typography variant="h5" component="h3">{text}</Typography>
+                </Box>
+                <Box pb={2}>
+                  <Typography variant="body1" component="p">os ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti.</Typography>
+                </Box>
+                <Button variant="contained" color="primary" size="medium" onClick={handleClickOpen}>
+                  Open dialog
+                </Button>
+              </Paper>
+            </Grid>
+          ))}          
         </Grid>
       </div>
+      <Dialog
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="alert-dialog-title"
+          aria-describedby="alert-dialog-description"
+      >
+          <DialogTitle id="alert-dialog-title">{"This is a sample dialog(modal)"}</DialogTitle>
+          <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+              Let Google help apps determine location. This means sending anonymous location data to
+              Google, even when no apps are running.
+          </DialogContentText>
+          </DialogContent>
+          <DialogActions>
+          <Button onClick={handleClose} variant="contained" color="primary" autoFocus>
+              Agree
+          </Button>
+          <Button onClick={handleClose} variant="outlined" color="primary">
+              Disagree
+          </Button>
+          </DialogActions>
+      </Dialog>
       <Drawer open={state.left} onClose={toggleDrawer('left', false)}>
         {sideList('left')}
       </Drawer>

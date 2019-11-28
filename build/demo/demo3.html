@@ -19,7 +19,7 @@
         font-family: 'Courier New', Courier, monospace;
       }
       .main {
-        padding: 60px;
+        padding: 40px;
       }
       .main .container {
           padding: 10px;
@@ -54,7 +54,7 @@
       <h3 class="subtitle">Embed snippet</h3>
       <code>
             NuiPlayer.init({<br>
-              &ensp;selector: "#nuiPlayer"<br>
+              &ensp;selector: "#nuiPlayer",<br>
               &ensp;clientId: "xxxxxxxx"<br>
             }); 
       </code>
@@ -70,14 +70,21 @@
     //   }(window, document, 'script', 'mw', 'https://master.d2t3ffh317fr07.amplifyapp.com/js/bundle.js'));
     //   mw('init', { selector: "#nuiPlayer", clientId: "xxxxxxxx" });
       
-        (function (w,d,s,o,f,js,fjs) {
-            w['NuiPlayer']=o;w[o] = w[o] || function () { (w[o].q = w[o].q || []).push(arguments) };
-            js = d.createElement(s), fjs = d.getElementsByTagName(s)[0];
-            js.id = o; js.src = f; js.async = 1; fjs.parentNode.insertBefore(js, fjs);
-            console.log('test', NuiPlayer)
-        }(window, document, 'script', 'mw', '//master.d2t3ffh317fr07.amplifyapp.com/js/bundle.js'));
-        mw('init', { selector: "#nuiPlayer", clientId: "xxxxxxxx" });
-        mw('message', 'Hello world!');
+        // (function (w,d,s,o,f,js,fjs) {
+        //     w['NuiPlayer']=o;w[o] = w[o] || function () { (w[o].q = w[o].q || []).push(arguments);console.log('test333', w[o]) };
+        //     js = d.createElement(s), fjs = d.getElementsByTagName(s)[0];
+        //     js.id = o; js.src = f; js.async = 1; fjs.parentNode.insertBefore(js, fjs);
+        //     console.log('test', mw)
+        // }(window, document, 'script', 'mw', '//master.d2t3ffh317fr07.amplifyapp.com/js/bundle.js'));
+        // mw('init', { selector: "#nuiPlayer", clientId: "xxxxxxxx" });
+        // mw('message', 'Hello world!');
+
+        (function(i,s,o,g,r,a,m){i['NuiPlayer']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//master.d2t3ffh317fr07.amplifyapp.com/js/bundle.js','ga');
+  ga('init', { selector: "#nuiPlayer", clientId: "xxxxxxxx" });
+
     </script>
   </body>
 </html>
