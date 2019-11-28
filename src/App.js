@@ -1,14 +1,16 @@
 import React from 'react';
-import { Button, Grid, Typography, Paper, AppBar, ToolBar, IconButton, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions } from 'clui-ui';
+import { Button, Grid, Typography, Paper, AppBar, Toolbar, IconButton, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, Drawer, List, Divider, ListItem, ListItemIcon, ListItemText } from 'clui-ui';
 import { makeStyles, createStyles } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
 import MenuIcon from '@material-ui/icons/Menu';
+import InboxIcon  from '@material-ui/icons/Inbox';
+import MailIcon   from '@material-ui/icons/Mail';
 
 const useStyles = makeStyles(theme => createStyles({
   root: {
     backgroundColor: theme.palette.background.default,
     color: theme.palette.text.primary,
-    padding: theme.spacing(2)
+    padding: theme.spacing(4)
   },
   paper: {
     padding: theme.spacing(2)
@@ -19,11 +21,23 @@ const useStyles = makeStyles(theme => createStyles({
   title: {
     flexGrow: 1,
   },
+  list: {
+    width: 250,
+  },
+  fullList: {
+    width: 'auto',
+  },
 }));
 
 function App(props) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
+  const [state, setState] = React.useState({
+    top: false,
+    left: false,
+    bottom: false,
+    right: false,
+  });
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -32,19 +46,54 @@ function App(props) {
   const handleClose = () => {
     setOpen(false);
   };
+
+  const toggleDrawer = (side, open) => event => {
+    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+      return;
+    }
+
+    setState({ ...state, [side]: open });
+  };
+
+  const sideList = side => (
+    <div
+      className={classes.list}
+      role="presentation"
+      onClick={toggleDrawer(side, false)}
+      onKeyDown={toggleDrawer(side, false)}
+    >
+      <List>
+        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+          <ListItem button key={text}>
+            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+            <ListItemText primary={text} />
+          </ListItem>
+        ))}
+      </List>
+      <Divider />
+      <List>
+        {['All mail', 'Trash', 'Spam'].map((text, index) => (
+          <ListItem button key={text}>
+            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+            <ListItemText primary={text} />
+          </ListItem>
+        ))}
+      </List>
+    </div>
+  );
   return (
     <React.Fragment>
       <header>
         <AppBar position="static">
-            <ToolBar>
-                <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+            <Toolbar>
+                <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu" onClick={toggleDrawer('left', true)}>
                 <MenuIcon />
                 </IconButton>
                 <Typography variant="h6" className={classes.title}>
                 This is a demo Nui embed app
                 </Typography>
                 <Button color="inherit">Login</Button>
-            </ToolBar>
+            </Toolbar>
         </AppBar>
       </header>
       <div className={classes.root}>
@@ -57,7 +106,7 @@ function App(props) {
               <Box pb={2}>
                 <Typography variant="body1" component="p">os ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti.</Typography>
               </Box>
-              <Button variant="outlined" color="primary" onClick={handleClickOpen}>
+              <Button variant="contained" color="primary" onClick={handleClickOpen}>
                 Open dialog
               </Button>
               <Dialog
@@ -74,11 +123,11 @@ function App(props) {
                   </DialogContentText>
                   </DialogContent>
                   <DialogActions>
-                  <Button onClick={handleClose} color="primary">
-                      Disagree
-                  </Button>
-                  <Button onClick={handleClose} color="primary" autoFocus>
+                  <Button onClick={handleClose} variant="contained" color="primary" autoFocus>
                       Agree
+                  </Button>
+                  <Button onClick={handleClose} variant="outlined" color="primary">
+                      Disagree
                   </Button>
                   </DialogActions>
               </Dialog>
@@ -94,7 +143,6 @@ function App(props) {
               </Box>
               <Button 
                 variant="contained"
-                color="primary"
                 size="medium"
               >
                 Enter
@@ -111,7 +159,6 @@ function App(props) {
               </Box>
               <Button 
                 variant="contained"
-                color="primary"
                 size="medium"
               >
                 Enter
@@ -128,7 +175,6 @@ function App(props) {
               </Box>
               <Button 
                 variant="contained"
-                color="primary"
                 size="medium"
               >
                 Enter
@@ -145,7 +191,6 @@ function App(props) {
               </Box>
               <Button 
                 variant="contained"
-                color="primary"
                 size="medium"
               >
                 Enter
@@ -162,7 +207,6 @@ function App(props) {
               </Box>
               <Button 
                 variant="contained"
-                color="primary"
                 size="medium"
               >
                 Enter
@@ -179,7 +223,6 @@ function App(props) {
               </Box>
               <Button 
                 variant="contained"
-                color="primary"
                 size="medium"
               >
                 Enter
@@ -196,7 +239,6 @@ function App(props) {
               </Box>
               <Button 
                 variant="contained"
-                color="primary"
                 size="medium"
               >
                 Enter
@@ -205,6 +247,9 @@ function App(props) {
           </Grid>
         </Grid>
       </div>
+      <Drawer open={state.left} onClose={toggleDrawer('left', false)}>
+        {sideList('left')}
+      </Drawer>
     </React.Fragment>
   );
 }
