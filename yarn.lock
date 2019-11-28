@@ -2333,8 +2333,8 @@ clsx@^1.0.2:
   resolved "https://registry.yarnpkg.com/clsx/-/clsx-1.0.4.tgz#0c0171f6d5cb2fe83848463c15fcc26b4df8c2ec"
 
 clui-ui@^0.1.7:
-  version "0.1.9"
-  resolved "https://registry.yarnpkg.com/clui-ui/-/clui-ui-0.1.9.tgz#a0aab5cb0402cae93e27a84472d1587a89481553"
+  version "0.1.10"
+  resolved "https://registry.yarnpkg.com/clui-ui/-/clui-ui-0.1.10.tgz#1240311f67a60bf95001037d9c62f6dde273d1e0"
   dependencies:
     "@babel/core" "^7.6.0"
     "@babel/plugin-transform-react-display-name" "^7.2.0"

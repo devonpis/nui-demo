@@ -40,7 +40,6 @@
         max-width: 920px;
       }
     </style>
-    <script src="https://master.d2t3ffh317fr07.amplifyapp.com/js/bundle.js"></script>
     <link href="https://master.d2t3ffh317fr07.amplifyapp.com/css/main.css" rel="stylesheet">
   </head>
   <body>
@@ -49,7 +48,6 @@
       <h1>This is an end user page</h1>
       <h3 class="subtitle">Import library files</h3>
       <code>
-            &lt;script src="https://master.d2t3ffh317fr07.amplifyapp.com/js/bundle.js"&gt;&lt;/script&gt;<br>
             &lt;link href="https://master.d2t3ffh317fr07.amplifyapp.com/css/main.css" rel="stylesheet"&gt;
       </code>
       <h3 class="subtitle">Embed snippet</h3>
@@ -63,11 +61,22 @@
             <div id="nuiPlayer"></div>    
       </div>
     </div>
-
-    <script type="text/javascript">
-      NuiPlayer.init({
-      selector: "#nuiPlayer"
-      }); 
+    <script>
+    //   (function (w,d,s,o,f,js,fjs) {
+    //   w['NuiPlayer']=o;w[o] = w[o] || function () { (w[o].q = w[o].q || []).push(arguments) };
+    //   js = d.createElement(s), fjs = d.getElementsByTagName(s)[0];
+    //   js.id = o; js.src = f; js.async = 1; fjs.parentNode.insertBefore(js, fjs);
+    //   }(window, document, 'script', 'mw', 'https://master.d2t3ffh317fr07.amplifyapp.com/js/bundle.js'));
+    //   mw('init', { selector: "#nuiPlayer", clientId: "xxxxxxxx" });
+      
+        (function (w,d,s,o,f,js,fjs) {
+            w['NuiPlayer']=o;w[o] = w[o] || function () { (w[o].q = w[o].q || []).push(arguments) };
+            js = d.createElement(s), fjs = d.getElementsByTagName(s)[0];
+            js.id = o; js.src = f; js.async = 1; fjs.parentNode.insertBefore(js, fjs);
+            console.log('test', NuiPlayer)
+        }(window, document, 'script', 'mw', '//master.d2t3ffh317fr07.amplifyapp.com/js/bundle.js'));
+        mw('init', { selector: "#nuiPlayer", clientId: "xxxxxxxx" });
+        mw('message', 'Hello world!');
     </script>
   </body>
 </html>
