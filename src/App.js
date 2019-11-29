@@ -1,4 +1,5 @@
 import React from 'react';
+import {withCookies} from 'react-cookie';
 import { Button, Grid, Typography, Paper, AppBar, Toolbar, IconButton, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, Drawer, List, Divider, ListItem, ListItemIcon, ListItemText } from 'clui-ui';
 import { makeStyles, createStyles } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
@@ -30,6 +31,7 @@ const useStyles = makeStyles(theme => createStyles({
 }));
 
 function App(props) {
+  const {cookies} = props;
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const [state, setState] = React.useState({
@@ -97,6 +99,12 @@ function App(props) {
         </AppBar>
       </header>
       <div className={classes.root}>
+        <Box pb={4}>
+          <Typography variant="body1" component="p">Global variable: <b>{window.globalVar || "-"}</b></Typography>
+          <Typography variant="body1" component="p">Local storage variable: <b>{window.localStorage.getItem('localStorageVar') || "-"}</b></Typography>
+          <Typography variant="body1" component="p">Cookie variable: <b>{cookies.get('cookieVar') || "-"}</b></Typography>
+          <Typography variant="body1" component="p">clientId: <b>{props.config.clientId}</b></Typography>
+        </Box>
         <Grid container spacing={4}>
           {['All mail', 'Trash', 'Spam', 'Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
             <Grid item xs={3}>
@@ -144,4 +152,4 @@ function App(props) {
   );
 }
 
-export default App;
+export default withCookies(App);
