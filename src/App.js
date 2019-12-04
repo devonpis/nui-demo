@@ -41,6 +41,10 @@ function App(props) {
     right: false,
   });
 
+  const mainMenuItems = ['Inbox', 'Starred', 'Send email', 'Drafts'];
+  const secondaryMenuItems = ['All mail', 'Trash', 'Spam', ];
+  const mainItems = ['All mail', 'Trash', 'Spam', 'Inbox', 'Starred', 'Send email', 'Drafts', 'new item'];
+
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -65,7 +69,7 @@ function App(props) {
       onKeyDown={toggleDrawer(side, false)}
     >
       <List>
-        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+        {mainMenuItems.map((text, index) => (
           <ListItem button key={text}>
             <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
             <ListItemText primary={text} />
@@ -74,7 +78,7 @@ function App(props) {
       </List>
       <Divider />
       <List>
-        {['All mail', 'Trash', 'Spam', ].map((text, index) => (
+        {secondaryMenuItems.map((text, index) => (
           <ListItem button key={text}>
             <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
             <ListItemText primary={text} />
@@ -106,7 +110,7 @@ function App(props) {
           <Typography variant="body1" component="p">clientId: <b>{props.config.clientId}</b></Typography>
         </Box>
         <Grid container spacing={4}>
-          {['All mail', 'Trash', 'Spam', 'Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+          {mainItems.map((text, index) => (
             <Grid item xs={3}>
               <Paper className={classes.paper}>
                 <Box pb={2}>
@@ -137,7 +141,7 @@ function App(props) {
           </DialogContentText>
           </DialogContent>
           <DialogActions>
-          <Button onClick={handleClose} variant="contained" color="primary" autoFocus>
+          <Button onClick={handleClose} variant="contained" color="primar" size="large" autoFocus>
               Agree
           </Button>
           <Button onClick={handleClose} variant="outlined" color="primary">

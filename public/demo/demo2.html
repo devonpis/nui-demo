@@ -8,7 +8,7 @@
       name="description"
       content="Web site created using create-react-app"
     />
-    <title>Nui demo</title>
+    <title>demo 2</title>
     <style>
       html,
       body {
@@ -54,9 +54,9 @@
       <h3 class="subtitle">Customisation</h3>
       <code>
             NuiPlayer.init({<br>
-              &ensp;selector: "#nuiPlayerCustom",<br>
+              &ensp;selector: "#nuiPlayer",<br>
               &ensp;clientId: "xxxxxxxx",<br>
-              &ensp;theme: {<br>
+              <span style="background-color: yellow; color: black;">&ensp;theme: {<br>
                 &ensp;&ensp;palette: {<br>
                   &ensp;&ensp;&ensp;primary: {<br>
                     &ensp;&ensp;&ensp;&ensp;main: "#FFFF00",<br>
@@ -74,7 +74,7 @@
                 &ensp;&ensp;shape: {<br>
                   &ensp;&ensp;&ensp;borderRadius: 20,<br>
                 &ensp;&ensp;}<br>
-              &ensp;}<br>
+              &ensp;}</span><br>
             }); 
       </code>
       <h3 class="subtitle">Html reference</h3>
@@ -82,7 +82,7 @@
         &lt;div id="nuiPlayer"&gt;&lt;/div&gt;
       </code>
       <div class="container">
-            <div id="nuiPlayerCustom"></div>    
+            <div id="nuiPlayer"></div>    
       </div>
     </div>
     <script type="text/javascript">
@@ -92,7 +92,8 @@
     </script>
     <script type="text/javascript">
       NuiPlayer.init({
-        selector: "#nuiPlayerCustom",
+        selector: "#nuiPlayer",
+        clientId: "xxxxxxxx",
         theme: {
           palette: {
             primary: {
@@ -110,7 +111,8 @@
           },
           shape: {
             borderRadius: 20,
-          }
+          },
+          // spacing: value => value * 8,
         }
       }); 
     </script>
