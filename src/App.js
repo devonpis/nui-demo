@@ -141,7 +141,7 @@ function App(props) {
           </DialogContentText>
           </DialogContent>
           <DialogActions>
-          <Button onClick={handleClose} variant="contained" color="primar" size="large" autoFocus>
+          <Button onClick={handleClose} variant="contained" color="primary" autoFocus>
               Agree
           </Button>
           <Button onClick={handleClose} variant="outlined" color="primary">
