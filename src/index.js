@@ -4,7 +4,9 @@ import { CookiesProvider } from 'react-cookie'
 import { ThemeProvider, globalTheme } from 'clui-ui';
 import App from './App';
 import myTheme from './globalTheme';
-
+import Amplify from 'aws-amplify'
+import config from './aws-exports'
+Amplify.configure(config)
 // ReactDOM.render(<App />, document.getElementById('root'));
 
 export const init = (config) => {

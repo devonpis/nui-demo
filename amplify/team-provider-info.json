@@ -1,0 +1,20 @@
+{
+    "devonenv": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-niu-demo-devonenv-152141-authRole",
+            "UnauthRoleArn": "arn:aws:iam::168114879241:role/amplify-niu-demo-devonenv-152141-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::168114879241:role/amplify-niu-demo-devonenv-152141-authRole",
+            "Region": "ap-southeast-2",
+            "DeploymentBucketName": "amplify-niu-demo-devonenv-152141-deployment",
+            "UnauthRoleName": "amplify-niu-demo-devonenv-152141-unauthRole",
+            "StackName": "amplify-niu-demo-devonenv-152141",
+            "StackId": "arn:aws:cloudformation:ap-southeast-2:168114879241:stack/amplify-niu-demo-devonenv-152141/1b7ef390-2544-11ea-b58a-026f52927b4e",
+            "AmplifyAppId": "d2u4gm9amppc6q"
+        },
+        "categories": {
+            "auth": {
+                "niudemo7ac42bad": {}
+            }
+        }
+    }
+}

@@ -1,5 +1,7 @@
 import React from 'react';
 import {withCookies} from 'react-cookie';
+import { withAuthenticator } from 'aws-amplify-react';
+import { Auth } from 'aws-amplify';
 import { Button, Grid, Typography, Paper, AppBar, Toolbar, IconButton, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, Drawer, List, Divider, ListItem, ListItemIcon, ListItemText } from 'clui-ui';
 import { makeStyles, createStyles } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
@@ -33,7 +35,7 @@ const useStyles = makeStyles(theme => createStyles({
 function App(props) {
   const {cookies} = props;
   const classes = useStyles();
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen, isAuth] = React.useState(false);
   const [state, setState] = React.useState({
     top: false,
     left: false,
@@ -44,6 +46,14 @@ function App(props) {
   const mainMenuItems = ['Inbox', 'Starred', 'Send email', 'Drafts'];
   const secondaryMenuItems = ['All mail', 'Trash', 'Spam', ];
   const mainItems = ['All mail', 'Trash', 'Spam', 'Inbox', 'Starred', 'Send email', 'Drafts', 'new item'];
+
+  const signOut = async () => {
+    await Auth.signOut();
+  }
+
+  const currentCredentials = async () => {
+    await Auth.currentCredentials();
+  }
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -98,7 +108,7 @@ function App(props) {
                 <Typography variant="h6" className={classes.title}>
                 This is a demo Nui embed app
                 </Typography>
-                <Button color="inherit">Login</Button>
+                <Button color="inherit" onClick={signOut} >Sign out</Button>
             </Toolbar>
         </AppBar>
       </header>
@@ -108,6 +118,7 @@ function App(props) {
           <Typography variant="body1" component="p">Local storage variable: <b>{window.localStorage.getItem('localStorageVar') || "-"}</b></Typography>
           <Typography variant="body1" component="p">Cookie variable: <b>{cookies.get('cookieVar') || "-"}</b></Typography>
           <Typography variant="body1" component="p">clientId: <b>{props.config.clientId}</b></Typography>
+  <Typography variant="body1" component="p"></Typography>
         </Box>
         <Grid container spacing={4}>
           {mainItems.map((text, index) => (
@@ -156,4 +167,4 @@ function App(props) {
   );
 }
 
-export default withCookies(App);
+export default withCookies(withAuthenticator(App));

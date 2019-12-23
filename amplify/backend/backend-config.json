@@ -1,0 +1,9 @@
+{
+	"auth": {
+		"niudemo7ac42bad": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": []
+		}
+	}
+}
